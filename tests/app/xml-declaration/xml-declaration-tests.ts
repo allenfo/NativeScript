@@ -46,29 +46,6 @@ export function test_load_ShouldNotCrashWithoutExports() {
     TKUnit.assertTrue(v instanceof view.View, "Expected result: View; Actual result: " + v + ";");
 };
 
-export function test_loadWithOptionsNoXML() {
-    var v = builder.load({
-        path: "~/xml-declaration/mymodule",
-        name: "MyControl",
-        exports: exports,
-        page: new Page()
-    });
-
-    TKUnit.assertTrue(v instanceof view.View, "Expected result: View; Actual result: " + v + ";");
-};
-
-export function test_loadWithOptionsNoXML_CSSIsApplied() {
-    let newPage = helper.getCurrentPage();
-    newPage.content = builder.load({
-        path: "~/xml-declaration/mymodule",
-        name: "MyControl",
-        exports: exports,
-        page: newPage
-    });
-
-    TKUnit.assert(newPage.isLoaded, "The page should be loaded here.");
-    helper.assertViewBackgroundColor(newPage.content, "#FF0000");
-};
 
 export function test_loadInheritedPageAndResolveFromChild() {
     var basePath = "xml-declaration/";
